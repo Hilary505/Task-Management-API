@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS task_management;
-USE task_management;
+CREATE DATABASE IF NOT EXISTS taskmanager;
+USE taskmanager;
 
 CREATE TABLE IF NOT EXISTS tasks (
     id         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
