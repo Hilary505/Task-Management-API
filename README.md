@@ -10,7 +10,7 @@ Basic Task Management API built with pure PHP and MySQL.
 
 ### 1. Run the migration
 ```bash
-mysql -u root -p < migrations/create_tasks_table.sql
+sudo mysql < migrations/create_tasks_table.sql
 ```
 
 ### 2. Configure the database
@@ -33,7 +33,25 @@ php -S localhost:8000 -t public
 POST /api/tasks
 Body: { "title": "Fix bug", "due_date": "2026-04-01", "priority": "high" }
 ```
+use curl 
 
+```bash
+# Create
+curl -X POST http://localhost:8000/api/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Fix bug","due_date":"2026-12-01","priority":"high"}'
+
+# List
+curl http://localhost:8000/api/tasks
+
+# Update status
+curl -X PATCH http://localhost:8000/api/tasks/1/status \
+  -H "Content-Type: application/json" \
+  -d '{"status":"in_progress"}'
+
+# Delete (only works after status is "done")
+curl -X DELETE http://localhost:8000/api/tasks/1
+```
 ### List Tasks
 ```
 GET /api/tasks
@@ -54,7 +72,7 @@ DELETE /api/tasks/{id}
 ```
 Only `done` tasks can be deleted.
 
-### Daily Report (Bonus)
+### Daily Report
 ```
 GET /api/tasks/report?date=2026-03-28
 ```
