@@ -1,2 +1,61 @@
 # Task-Management-API
-Basic Task Management API that helps Create tasks, List tasks, Update task status, Delete tasks and Daily task reports
+
+Basic Task Management API built with pure PHP and MySQL.
+
+## Requirements
+- PHP 8.1+
+- MySQL 5.7+
+
+## Setup
+
+### 1. Run the migration
+```bash
+mysql -u root -p < migrations/create_tasks_table.sql
+```
+
+### 2. Configure the database
+Edit `config/database.php` or set environment variables:
+```
+DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS
+```
+
+### 3. Start the server
+```bash
+php -S localhost:8000 -t public
+```
+
+---
+
+## API Endpoints
+
+### Create Task
+```
+POST /api/tasks
+Body: { "title": "Fix bug", "due_date": "2026-04-01", "priority": "high" }
+```
+
+### List Tasks
+```
+GET /api/tasks
+GET /api/tasks?status=pending
+```
+Sorted by priority (high → low), then due_date ascending.
+
+### Update Task Status
+```
+PATCH /api/tasks/{id}/status
+Body: { "status": "in_progress" }
+```
+Allowed transitions: `pending → in_progress → done`
+
+### Delete Task
+```
+DELETE /api/tasks/{id}
+```
+Only `done` tasks can be deleted.
+
+### Daily Report (Bonus)
+```
+GET /api/tasks/report?date=2026-03-28
+```
+Returns counts per priority and status for the given due_date.
