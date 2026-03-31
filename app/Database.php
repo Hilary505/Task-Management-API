@@ -7,7 +7,6 @@ class Database
     public static function connect(): PDO
     {
         if (self::$instance === null) {
-
             try {
                 $cfg = require __DIR__ . '/../config/database.php';
 
@@ -32,7 +31,6 @@ class Database
                 exit;
             }
         }
-
         return self::$instance;
     }
 }
