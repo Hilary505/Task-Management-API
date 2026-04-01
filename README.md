@@ -21,7 +21,7 @@ DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS
 
 ### 3. Start the server
 ```bash
-php -S localhost:8000 -t public
+php -S localhost:8000 -t backend/public
 ```
 
 ---
