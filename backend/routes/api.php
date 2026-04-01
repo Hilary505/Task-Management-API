@@ -4,7 +4,7 @@ require_once __DIR__ . '/../controllers/TaskController.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri    = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri    = rtrim($uri, '/');
+//$uri    = rtrim($uri, '/');
 
 // Strip /public from URI if running via built-in server from /public
 $uri = preg_replace('#^/public#', '', $uri);
