@@ -23,7 +23,7 @@ DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS
 ```bash
 php -S localhost:8000 -t backend/public
 ```
-
+* The server runs at port 8000, paste ```localhost:8000``` on browser to access the frontend.
 ---
 
 ## API Endpoints
