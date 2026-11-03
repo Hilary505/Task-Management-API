@@ -44,12 +44,6 @@ php -S localhost:8000 -t backend/public
 ```
 Open `http://localhost:8000` in your browser.
 
----
-
-## Deploying Online
-
-Both Railway and Render offer free-tier MySQL + PHP hosting.
-
 ### Railway
 
 1. Push your repo to GitHub.
